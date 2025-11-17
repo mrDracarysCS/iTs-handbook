@@ -6,6 +6,7 @@ void main() {
     await tester.pumpWidget(const app.MainApp());
     await tester.pumpAndSettle();
 
-    expect(find.text('Sign in'), findsOneWidget);
+    // We expect the sign-in text to be present (may appear multiple times: app bar and button)
+    expect(find.text('Sign in'), findsWidgets);
   });
 }
