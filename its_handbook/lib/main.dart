@@ -21,7 +21,14 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        textTheme: ThemeData.light().textTheme,
       ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo, brightness: Brightness.dark),
+      ),
+      themeMode: ThemeMode.system,
       initialRoute: '/login',
       routes: {
         '/login': (context) => const LoginScreen(),

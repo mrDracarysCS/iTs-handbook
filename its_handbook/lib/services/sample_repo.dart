@@ -5,7 +5,21 @@ class SampleRepository {
     Article(
       id: 'a1',
       title: 'pfSense New Client Setup',
-      content: 'Step 1: Provision VM\nStep 2: Install pfSense\nStep 3: Configure WAN/LAN',
+      content: '''
+# pfSense New Client Setup
+
+1. Provision a VM with 2 vCPUs and 4GB RAM.
+2. Download the latest pfSense image and attach to the VM.
+3. Install pfSense following the installer prompts.
+4. Configure WAN and LAN interfaces.
+
+```bash
+# Example: enable SSH
+pfSense# system enable ssh
+```
+
+> Notes: Ensure management NIC is on a private network for setup.
+''',
       categoryId: 'networking',
       tags: ['pfSense', 'Networking'],
       lastUpdatedBy: 'alice',
@@ -15,7 +29,25 @@ class SampleRepository {
     Article(
       id: 'a2',
       title: 'S3 Bucket Policy Template',
-      content: 'Example policy:\n{ ... }',
+      content: '''
+## S3 Bucket Policy (Example)
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::example-bucket/*"
+    }
+  ]
+}
+```
+
+Use this as a starting point and tighten the Principal/Actions for production.
+''',
       categoryId: 'cloud',
       tags: ['AWS', 'S3'],
       lastUpdatedBy: 'bob',
@@ -25,7 +57,19 @@ class SampleRepository {
     Article(
       id: 'r1',
       title: 'Email outage',
-      content: 'Runbook for email outage\n- Verify MX records\n- Check provider status',
+      content: '''
+# Email outage
+
+**Severity:** High
+
+Steps:
+
+1. Verify provider status page.
+2. Check MX records with dig.
+3. Confirm mail queue on MTA.
+
+Escalation: On-call -> SLA manager -> Provider support.
+''',
       categoryId: 'incidents',
       tags: ['Email', 'Incident'],
       lastUpdatedBy: 'oncall',

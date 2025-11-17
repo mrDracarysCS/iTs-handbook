@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import '../services/sample_repo.dart';
 
 class ArticleView extends StatelessWidget {
@@ -21,15 +22,23 @@ class ArticleView extends StatelessWidget {
       appBar: AppBar(title: Text(article.title)),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Wrap(spacing: 8, children: article.tags.map((t) => Chip(label: Text(t))).toList()),
-              const SizedBox(height: 12),
-              Text(article.content),
-            ],
-          ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Wrap(spacing: 8, children: article.tags.map((t) => Chip(label: Text(t))).toList()),
+            const SizedBox(height: 12),
+            Expanded(
+              child: Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Markdown(
+                    data: article.content,
+                    styleSheet: MarkdownStyleSheet.fromTheme(Theme.of(context)).copyWith(p: Theme.of(context).textTheme.bodyMedium),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
