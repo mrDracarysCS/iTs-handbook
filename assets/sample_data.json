@@ -1,0 +1,46 @@
+{
+  "users": [
+    {"id": "u1", "name": "Alice Admin", "email": "alice@example.com", "role": "admin"},
+    {"id": "u2", "name": "Bob Tech", "email": "bob@example.com", "role": "editor"}
+  ],
+  "categories": [
+    {"id": "c_net", "name": "Networking", "description": "Routers, firewalls, VPNs"},
+    {"id": "c_cloud", "name": "Cloud", "description": "AWS, Azure, GCP"}
+  ],
+  "tags": [
+    {"id": "t_aws", "label": "AWS"},
+    {"id": "t_pfsense", "label": "pfSense"}
+  ],
+  "articles": [
+    {
+      "id": "a1",
+      "title": "pfSense New Client Setup",
+      "content": "# pfSense Setup\n1. Connect WAN...\n2. Configure LAN...",
+      "categoryId": "c_net",
+      "tags": ["t_pfsense"],
+      "lastUpdatedBy": "u2",
+      "lastUpdatedAt": "2025-01-10T12:00:00Z",
+      "type": "playbook"
+    },
+    {
+      "id": "a2",
+      "title": "Email Outage Runbook",
+      "content": "# Email outage\nStep 0: Verify scope...\nStep 1: Check MX records...",
+      "categoryId": "c_cloud",
+      "tags": ["t_aws"],
+      "lastUpdatedBy": "u1",
+      "lastUpdatedAt": "2025-03-01T09:30:00Z",
+      "type": "runbook"
+    }
+  ],
+  "checklistTemplates": [
+    {
+      "id": "ct1",
+      "title": "New Employee IT Setup",
+      "items": [
+        {"id": "i1", "text": "Create user account"},
+        {"id": "i2", "text": "Provision laptop"}
+      ]
+    }
+  ]
+}
