@@ -6,6 +6,7 @@ import 'screens/article_view.dart';
 import 'screens/runbooks_view.dart';
 import 'screens/checklist_templates.dart';
 import 'screens/admin_settings.dart';
+import 'theme/app_theme.dart';
 
 void main() {
   runApp(const MainApp());
@@ -18,16 +19,9 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "IT's Handbook",
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        textTheme: ThemeData.light().textTheme,
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo, brightness: Brightness.dark),
-      ),
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.light(),
+      darkTheme: AppTheme.dark(),
       themeMode: ThemeMode.system,
       initialRoute: '/login',
       routes: {
